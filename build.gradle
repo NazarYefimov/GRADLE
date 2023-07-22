@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task task1 {
+    doLast {
+        println "Task 1 is executed!"
+    }
+}
+
+task task2(dependsOn: task1) {
+    doLast {
+        println "Task 2 is executed after Task 1!"
+    }
+}
